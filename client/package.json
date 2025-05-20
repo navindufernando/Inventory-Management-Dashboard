@@ -20,6 +20,7 @@
     "next": "15.3.2",
     "numeral": "^2.0.6",
     "react": "^19.0.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "recharts": "^2.15.3",

@@ -15,7 +15,6 @@ const CardExpenseSummary = () => {
   const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
 
   const expenseSummary = dashboardMetrics?.expenseSummary[0];
-
   const expenseByCategorySummary =
     dashboardMetrics?.expenseByCategorySummary || [];
 
@@ -46,7 +45,12 @@ const CardExpenseSummary = () => {
   return (
     <div className="row-span-3 bg-white shadow-md rounded-2xl flex flex-col justify-between">
       {isLoading ? (
-        <div className="m-5">Loading...</div>
+        <div className="m-5 animate-pulse space-y-4">
+          <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+          <div className="h-6 bg-gray-300 rounded w-1/3"></div>
+          <div className="h-36 bg-gray-100 rounded"></div>
+          <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+        </div>
       ) : (
         <>
           {/* HEADER */}
@@ -56,6 +60,7 @@ const CardExpenseSummary = () => {
             </h2>
             <hr />
           </div>
+
           {/* BODY */}
           <div className="xl:flex justify-between pr-7">
             {/* CHART */}
@@ -82,11 +87,13 @@ const CardExpenseSummary = () => {
                 </PieChart>
               </ResponsiveContainer>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center basis-2/5">
-                <span className="font-bold text-xl">
+                <span className="font-bold text-xl text-gray-800">
                   ${formattedTotalExpenses}
                 </span>
+                <p className="text-xs text-gray-400 mt-1">Total</p>
               </div>
             </div>
+
             {/* LABELS */}
             <ul className="flex flex-col justify-around items-center xl:items-start py-5 gap-3">
               {expenseCategories.map((entry, index) => (
@@ -103,22 +110,23 @@ const CardExpenseSummary = () => {
               ))}
             </ul>
           </div>
+
           {/* FOOTER */}
           <div>
             <hr />
             {expenseSummary && (
               <div className="mt-3 flex justify-between items-center px-7 mb-4">
                 <div className="pt-2">
-                  <p className="text-sm">
+                  <p className="text-sm text-gray-600">
                     Average:{" "}
-                    <span className="font-semibold">
+                    <span className="font-semibold text-black">
                       ${expenseSummary.totalExpenses.toFixed(2)}
                     </span>
                   </p>
                 </div>
-                <span className="flex items-center mt-2">
-                  <TrendingUp className="mr-2 text-green-500" />
-                  30%
+                <span className="flex items-center mt-2 text-sm text-green-500 font-medium">
+                  <TrendingUp className="mr-2" />
+                  30% ↑
                 </span>
               </div>
             )}
