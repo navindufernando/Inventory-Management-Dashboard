@@ -80,7 +80,6 @@ const Sidebar = () => {
           isSidebarCollapsed ? "px-5" : "px-8"
         }`}
       >
-        <div>logo</div>
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"

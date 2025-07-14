@@ -63,8 +63,7 @@ const Navbar = () => {
           </div>
           <hr className="w-0 h-7 border border-solid border-1 border-gray-300 mx-3" />
           <div className="flex items-center gap-3 cursor-pointer">
-            <div className="w-9 h-9">image</div>
-            <span className="font-semibold">NAVZ</span>
+            <span className="font-semibold">Janith</span>
           </div>
         </div>
         <Link href="/settings">
